@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+  <meta charset="UTF-8" />
+  <head>
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/media.css" />
+  </head>
+  <body>
+    <section class="bg-body-tertiary">
+      <div class="container py-5">
+        <div class="form-floating mb-0">
+          <input
+            oninput="validateForm(this)"
+            type="text"
+            class="form-control"
+            id="productName"
+            placeholder="Product Name"
+          />
+          <span class="px-2 text-bg-danger d-inline-block w-auto alert-l"
+            >Name must me more than 1 character and start with (A~Z)
+          </span>
+          <label for="productName">Product Name</label>
+        </div>
+        <div class="form-floating mb-0">
+          <input
+            oninput="validateForm(this)"
+            type="text"
+            class="form-control"
+            id="productPrice"
+            placeholder="Product Price"
+          />
+          <span class="px-2 text-bg-danger d-inline-block w-auto alert-l"
+            >Price must be in range 6000 to 60000</span
+          >
+          <label for="productPrice">Product Price</label>
+        </div>
+        <div class="form-floating mb-0">
+          <input
+            oninput="validateForm(this)"
+            list="ProductCate"
+            type="text"
+            class="form-control"
+            id="productCateogery"
+            placeholder="Product Cateogery"
+          />
+          <span class="px-2 text-bg-danger d-inline-block w-auto alert-l"
+            >Cateogery must be Phones or Screens or Accesories</span
+          >
+          <datalist id="ProductCate">
+            <option value="Phones"></option>
+            <option value="Screens"></option>
+            <option value="Accesories"></option>
+          </datalist>
+          <label for="productCateogery">Product Cateogery</label>
+        </div>
+        <div class="form-floating mb-0">
+          <input
+            oninput="validateForm(this)"
+            type="file"
+            class="form-control"
+            id="productImage"
+            placeholder="Product Image"
+          />
+          <span class="px-2 text-bg-danger d-inline-block w-auto alert-l"
+            >You must upload 1 photo</span
+          >
+          <label for="productImage">Product Image</label>
+        </div>
+        <div class="form-floating mb-2">
+          <textarea
+            oninput="validateForm(this)"
+            class="form-control"
+            name=""
+            id="productDes"
+            placeholder="Product Describtion"
+          ></textarea>
+          <span class="px-2 text-bg-danger d-inline-block w-auto alert-l"
+            >Describtion must be in rangr (1-250) charcters</span
+          >
+          <label for="productDes">Product Describtion</label>
+        </div>
+        <button
+          class="w-100 btn btn-info"
+          id="addBtn"
+          type="submit"
+          onclick="addProduct()"
+          disabled
+        >
+          Add Product
+        </button>
+        <button
+          class="w-100 btn btn-primary d-none"
+          id="updateBtn"
+          type="submit"
+          onclick="updateProduct()"
+        >
+          Update Product
+        </button>
+      </div>
+    </section>
+    <!-- gallary -->
+    <section class="py-5 bg-body-secondary">
+      <div class="container">
+        <div>
+          <div class="form-floating mb-2">
+            <input
+              type="text"
+              class="form-control"
+              id="searchProduct"
+              placeholder="Search for your product"
+              oninput="searchProduct(this.value)"
+            />
+            <label for="productName">
+              <i class="fa-solid fa-magnifying-glass me-2"></i>
+              Search for your product
+            </label>
+          </div>
+          <div
+            class="alert alert-danger alert-l d-inline-block w-auto mb-0"
+            id="noSearchAlert"
+            role="alert"
+          >
+            
+          </div>
+        
+        </div>
+
+        <div class="row gy-4" id="products"></div>
+        <div
+          class="alert alert-dark text-center alert-l"
+          id="productsAlert"
+          role="alert"
+        >
+          No products added yet .
+        </div>
+      </div>
+    </section>
+    <!-- <script src="js/bootstrap.bundle.min.js"></script> -->
+    <script src="js/index.js"></script>
+  </body>
+</html>
